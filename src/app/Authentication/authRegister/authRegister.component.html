@@ -1,0 +1,49 @@
+<div class="registerHolder" style="display: flex; align-items: center; justify-content: center;">
+  <mat-card class="RegisterForm-container">
+    <mat-card-title style="font-size: 2em; padding-top: 1em; color: white;">Register</mat-card-title>
+    <mat-card-content>
+      <form style="display: flex; flex-direction: column; justify-content: space-evenly; height: 100%;" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <div class="input-holder" style="margin-bottom: 1em;">
+          <label style="margin-bottom: 1rem; text-shadow: 2px 2px black;" for="email">Email</label>
+          <input class="inputNameAndPass" id="email" type="email" formControlName="email" required>
+          <!-- Error messages for email -->
+          <!-- <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.hasError('required')" style="color: red;">
+            Email is <strong>required</strong>
+          </div>
+          <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.hasError('email')" style="color: red;">
+            Please enter a valid email address
+          </div> -->
+        </div>
+
+        <div class="input-holder" style="margin-bottom: 1em;">
+          <label style="margin-bottom: 1rem; text-shadow: 2px 2px black;" for="password">Password</label>
+          <input class="inputNameAndPass" id="password" type="password" formControlName="password" required>
+          <!-- Error messages for password -->
+          <!-- <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.hasError('required')" style="color: red;">
+            Password is <strong>required</strong>
+          </div>
+          <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.hasError('minlength')" style="color: red;">
+            Password must be at least 6 characters long
+          </div> -->
+        </div>
+
+        <button type="submit" style="padding: 1em; 
+        border: none; border-radius: 4px; 
+        background-color: #f1f2f5;
+         color: rgb(20, 20, 20); 
+         cursor: pointer; 
+         font-size: 1em;
+         font-family: 'Courier New', Courier, monospace;
+         font-weight: bold;
+         margin-top: 20%; 
+         margin-bottom: 1rem;" 
+         [disabled]="registerForm.invalid">
+          Register
+        </button>
+      </form>
+    </mat-card-content>
+    <div class="media-container">
+      <img (click)="DiscordMediaLogin()" style="width: 5vh; cursor: pointer;" src="https://static-00.iconduck.com/assets.00/discord-icon-2048x2048-o5mluhz2.png" alt="">
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,78 @@
+.LoginForm-container{
+    display: flex;  
+    align-items: center; 
+    width: 40%;
+    background-image: url(https://apexgamingpcs.com/cdn/shop/articles/4K-vs-1080p-for-Gaming_1200x630.jpg?v=1633718118);
+     background-position: center; background-size: cover;
+     animation-duration: 1s;
+     animation-name: logAnimation;
+}
+
+.input-holder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20%;
+    color: white;
+    font-weight: bold;
+}
+.inputNameAndPass {
+    padding: 1em;
+    border: 0.5px solid #ccc;
+    border-radius: 10px;
+    background-color: rgb(82, 77, 77); /* Your desired background color */
+    transition: ease-in 2s;
+    color: white;
+}
+
+.inputNameAndPass:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px rgb(82, 77, 77) inset !important; /* Your desired background color */
+    box-shadow: 0 0 0 1000px rgb(82, 77, 77) inset !important; /* Your desired background color */
+    -webkit-text-fill-color: white !important;
+}
+
+.media-container{
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    width: 50%;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    animation-duration: 1.5s;
+    animation-name: logMediaAnimation;
+}
+
+@keyframes logAnimation {
+    from {
+      transform: translateY(30%);
+      
+    }
+  
+    to {
+      transform: translateY(0%);
+    }
+  }
+
+  @keyframes logMediaAnimation {
+    from {
+      transform: translateX(100%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+
+  @media only screen and (max-width: 768px) {
+    .LoginForm-container{
+        width: 100%;
+        border-radius: 0;
+        height: 100%;
+    }
+    .loginHolder{
+      height: 100%;
+    }
+    
+  }

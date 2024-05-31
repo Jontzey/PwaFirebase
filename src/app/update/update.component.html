@@ -1,0 +1,11 @@
+<div style="display: flex; flex-direction: column; align-items: center;">
+   <h1 style="color: white; font-family: 'Times New Roman', Times, serif;">Updates</h1>
+    <div class="updates-container">
+        <div *ngFor="let update of updates" style="padding: 1rem;" >
+            <h2 style="color: white;">{{ update.title }}</h2>
+            <small style="color: white;">TargetGroup: {{update.role}}</small>
+            <p style="color: white;">{{ update.description }}</p>
+            <small style="color: white;">{{ update.date | date:'medium' }}</small>
+        </div>
+    </div>
+</div>
