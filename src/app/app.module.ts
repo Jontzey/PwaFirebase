@@ -16,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { environment } from '../enviroments/enviroment';
+import { enviroment } from '../enviroments/enviroment'
 import { userService } from '../services/userService.servive';
 import {MatIconModule} from '@angular/material/icon'
 import { AuthLoginComponent } from './Authentication/auth-login/auth-login.component';
@@ -51,7 +51,7 @@ import { UpdateComponent } from './update/update.component';
     MatIconModule,
     MatSnackBarModule,
     MatDialogModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(enviroment.firebaseConfig),
   ],
   providers: [
     userService

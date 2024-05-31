@@ -1,6 +1,6 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 # Ignore environment.ts file
-src/environments
+src/enviroments
 # Compiled output
 /dist
 /tmp
@@ -41,4 +41,8 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-src/environments
+# Ignore environment configuration files
+/src/enviroments/*.ts
+
+# Ignore sensitive files containing credentials or API keys
+/src/enviroments/*.secret
