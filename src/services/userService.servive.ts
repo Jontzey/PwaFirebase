@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { initializeApp, FirebaseApp } from 'firebase/app';
 import { getAuth, Auth, onAuthStateChanged } from 'firebase/auth';
 import { getDatabase, ref, set } from "firebase/database";
@@ -24,7 +24,14 @@ export class userService {
   login(email: string, password: string): Promise<any> {
     return this.afAuth.signInWithEmailAndPassword(email, password).then(user => {
         if(user){
+          if(isDevMode()){
             console.log(user);
+            console.log(user.user?.uid);
+          }
+
+          if(user.user?.uid === "vy6lAfS89Ca9sxq660YXyAt57WD2"){
+            console.log("jonte konto here");
+          }
             this._snackBar.open(`Welcome ${user.user?.email}`, ':D', {
                 horizontalPosition: 'center',
                 verticalPosition: 'top',

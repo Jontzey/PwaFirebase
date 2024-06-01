@@ -37,3 +37,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import {MatIconModule} from '@angular/material/icon'
 https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/
 ## Firebase setup for authentication
+
+
+## For testing
+npm install -g http-server
+npx http-server -p 8080 -c-1 public
+Hit CTRL-C to stop the server
