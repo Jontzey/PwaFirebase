@@ -6,6 +6,7 @@ import { AuthRegisterComponent } from './Authentication/authRegister/authRegiste
 import { HomeComponent } from './home/home.component';
 import { AuthLoginComponent } from './Authentication/auth-login/auth-login.component';
 import { UpdateComponent } from './update/update.component';
+import { ProfileComponent } from '../userHub/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
 {path: 'auth/register', component: AuthRegisterComponent},
 {path: 'auth/login', component:AuthLoginComponent},
 {path:'updates', component:UpdateComponent},
+{path:'profile', component:ProfileComponent},
 { path: '**', redirectTo: 'home', pathMatch: 'full' } // Redirect unknown paths to home
 ];
 

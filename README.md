@@ -28,7 +28,11 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 3. ng build
 4. "firebase deploy"
 
-
+## Firebase realtime database
+using angularfiremodule makes it a lot easier to deal with database here is for the auth aswell
+import { AngularFireModule } from '@angular/fire/compat';
+when imported import -- { AngularFireDatabase } from '@angular/fire/compat/database'; --  just add it to constructor like "private db: AngularFireDatabase"
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 ## ICONS
 import {MatIconModule} from '@angular/material/icon'
 https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/

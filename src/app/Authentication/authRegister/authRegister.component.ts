@@ -8,8 +8,6 @@ import { MatDialog } from "@angular/material/dialog";
 import { UnderConstructionDialogComponent } from "../../../Dialogs/under-construction-dialog/under-construction-dialog.component";
 
 
-
-
 @Component({
     selector: 'auth-register',
     templateUrl: './authRegister.component.html',
@@ -21,7 +19,13 @@ export class AuthRegisterComponent implements OnInit{
     registerForm: FormGroup;
     isLogOrReg:boolean = true
 
-    constructor(private fb: FormBuilder,  private afAuth: AngularFireAuth, private userService:userService, private router:Router, private dialog:MatDialog) {
+    constructor(private fb: FormBuilder,  
+      private afAuth: AngularFireAuth,
+      private userService:userService,
+      private router:Router,
+      private dialog:MatDialog) {
+
+          
       this.registerForm = this.fb.group({
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]]
@@ -34,14 +38,19 @@ export class AuthRegisterComponent implements OnInit{
     }
     onRegister() {
         const { email, password } = this.registerForm.value;
-        this.afAuth.createUserWithEmailAndPassword(email, password) // Use AngularFireAuth
-        .then((userCredential) => {
-            console.log('User registered:', userCredential.user);
-            return this.userService.login(email, password);
-        })
-        .catch((error) => {
-            console.error('Error registering user:', error);
+
+        this.userService.registerUser(email, password).then(ok => {
+          if(ok){
+            
+            console.log(ok);
+          }
+          else{
+            console.log("something went wrong with registrations");
+          }
+        }).catch(Error => {
+          throw Error
         });
+       
     }
 
     ngOnInit(): void {

@@ -2,7 +2,7 @@
   <mat-drawer #drawer class="example-sidenav" mode="over">
     <div style="display: flex; height: 100%; width: 100%; flex-direction: column; align-items: center; background-color: rgb(57, 57, 73)">
 
-      <a *ngIf="(userService.isLoggedIn$ | async)" class="sidenav-item"><mat-icon>account_circle</mat-icon>Profile</a>
+      <a *ngIf="(userService.isLoggedIn$ | async)" class="sidenav-item" [routerLink]="['profile']"><mat-icon>account_circle</mat-icon>Profile</a>
       <a class="sidenav-item"  [routerLink]="['home']" routerLinkActive="active"><mat-icon>home</mat-icon>Home</a>
       <a *ngIf="!(userService.isLoggedIn$ | async)" class="sidenav-item" [routerLink]="['auth/login']" routerLinkActive="active">Login</a>
       <a *ngIf="!(userService.isLoggedIn$ | async)" class="sidenav-item" [routerLink]="['auth/register']" routerLinkActive="active">Register</a>

@@ -25,6 +25,7 @@ import { UnderConstructionDialogComponent } from '../Dialogs/under-construction-
 import {MatDialogModule} from '@angular/material/dialog';
 import { HomeComponent } from './home/home.component';
 import { UpdateComponent } from './update/update.component';
+import { ProfileComponent } from '../userHub/profile/profile.component';
 @NgModule ({
   declarations: [
     AppComponent,
@@ -33,8 +34,12 @@ import { UpdateComponent } from './update/update.component';
     MainLayoutComponent,
     UnderConstructionDialogComponent,
     HomeComponent,
-    UpdateComponent
+    UpdateComponent,
+    ProfileComponent
 
+  ],
+  providers: [
+    userService
   ],
   imports: [
     BrowserModule, // Import BrowserModule if you are running in a browser environment
@@ -52,9 +57,6 @@ import { UpdateComponent } from './update/update.component';
     MatSnackBarModule,
     MatDialogModule,
     AngularFireModule.initializeApp(enviroment.firebaseConfig),
-  ],
-  providers: [
-    userService
   ],
   bootstrap: [AppComponent] // Specify the main component to bootstrap here
 })
