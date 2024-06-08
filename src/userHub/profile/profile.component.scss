@@ -17,6 +17,10 @@
     margin-left: 0;
 }
 
+.button-group{
+  display: flex;
+  justify-content: space-around;
+}
 
 @media only screen and (max-width: 768px) {
     .profile-container{

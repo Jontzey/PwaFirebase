@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { userService } from '../services/userService.servive';
-
+import { enviroment } from '../enviroments/enviroment';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,6 +9,9 @@ import { userService } from '../services/userService.servive';
 })
 export class AppComponent implements OnInit{
   title = 'jontxProject';
+  adminId = enviroment.adminUid;
+  isAdmin = this.userService.isAdmin;
+
   constructor(public userService:userService){
 
   }

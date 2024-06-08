@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
   
     profileForm: FormGroup;
     user: any;
-
+    toggleEditMode:boolean = false;
   constructor(
     private userService:userService, 
     private router:Router, 
@@ -49,11 +49,19 @@ export class ProfileComponent implements OnInit {
   onSubmit(): void {
     if (this.profileForm.valid) {
       const { email, displayName, profileImage } = this.profileForm.value;
+      setTimeout(() => {
+        this.toggleEditMode = false;
+      },700)
       this.userService.updateUserProfile(this.user, email, displayName, profileImage).subscribe({
         error: error => {
           console.error('Error updating profile:', error);
         }
       });
     }
+  }
+
+  toggleEdit(){
+    this.toggleEditMode = !this.toggleEditMode;
+    console.log(this.toggleEditMode);
   }
 }

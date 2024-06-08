@@ -40,13 +40,7 @@ export class AuthRegisterComponent implements OnInit{
         const { email, password } = this.registerForm.value;
 
         this.userService.registerUser(email, password).then(ok => {
-          if(ok){
-            
-            console.log(ok);
-          }
-          else{
-            console.log("something went wrong with registrations");
-          }
+        
         }).catch(Error => {
           throw Error
         });

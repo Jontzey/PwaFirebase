@@ -6,7 +6,7 @@ src/enviroments
 /tmp
 /out-tsc
 /bazel-out
-
+/public
 # Node
 /node_modules
 npm-debug.log

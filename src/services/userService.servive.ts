@@ -3,10 +3,11 @@ import { initializeApp, FirebaseApp } from 'firebase/app';
 import { getAuth, Auth, onAuthStateChanged } from 'firebase/auth';
 import { getDatabase, ref, set } from "firebase/database";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Observable, from, map } from 'rxjs';
+import { BehaviorSubject, Observable, from, map } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import firebase from 'firebase/compat/app';
+import { enviroment } from '../enviroments/enviroment';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,11 +15,33 @@ export class userService {
 
     isLoggedIn$: Observable<boolean>;
     currentUser$: Observable<firebase.User | null>;
-    
+    user:any;
+    adminUid = enviroment.adminUid;
+    private _isAdmin = new BehaviorSubject<boolean>(false);
+    isAdmin = this._isAdmin.asObservable();
+    test:any;
+
+    tempAccount = {
+      tempDisplayName: 'tempUsername',
+      tempImg: 'assets/images/img9.jpg'
+    }
   constructor(private afAuth: AngularFireAuth, private _snackBar:MatSnackBar, private db: AngularFireDatabase) {
     //observes the auth state and hold current user
     this.currentUser$ = this.afAuth.authState;
     this.isLoggedIn$ = this.afAuth.authState.pipe(map(user => !!user));
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+       console.log(user);
+       if(user.uid === enviroment.adminUid){
+          this.test = true;
+       }else{
+        this.test = false;
+       }
+      } else {
+       this.test = false;
+      }
+    });
   }
     /// AUTHENTICATION FUNCTIONS
   login(email: string, password: string): Promise<any> {
@@ -29,14 +52,19 @@ export class userService {
             console.log(user.user?.uid);
           }
 
-          if(user.user?.uid === "vy6lAfS89Ca9sxq660YXyAt57WD2"){
-            console.log("jonte konto here");
+          if(user.user?.uid === this.adminUid){
+            console.log("admin konto here");
+            this._isAdmin.next(true);
+          }
+          else{
+            this._isAdmin.next(false);
           }
             this._snackBar.open(`Welcome ${user.user?.email}`, ':D', {
                 horizontalPosition: 'center',
                 verticalPosition: 'top',
                 duration:3000
               });
+              
         }else{
             this._snackBar.open(`Cannot find that user`, 'sorry', {
                 horizontalPosition: 'center',
@@ -50,14 +78,20 @@ export class userService {
   registerUser(email:string, password:string){
     return this.afAuth.createUserWithEmailAndPassword(email, password) // Use AngularFireAuth
     .then((userCredential) => {
+      if(isDevMode()){
         console.log('User registered:', userCredential.user);
-        this.db.object('users/' + userCredential.user?.uid).set({
-          email:email,
-          dateCreated:Date.now(),
-          displayName:userCredential.user?.displayName,
-          profileImage:userCredential.user?.photoURL
+
+      }
+          userCredential.user?.updateProfile({displayName:this.tempAccount.tempDisplayName, photoURL:this.tempAccount.tempImg}).then(t =>{
+          this.db.object('users/' + userCredential.user?.uid).set({
+            email:email,
+            dateCreated:Date.now(),
+            displayName:userCredential.user?.displayName,
+            profileImage:userCredential.user?.photoURL
+          })
+
+          return this.login(email, password);
         })
-        return this.login(email, password);
     })
     .catch((error) => {
         console.error('Error registering user:', error);
@@ -70,6 +104,8 @@ export class userService {
         verticalPosition: 'top',
         duration:3000
       });
+      this._isAdmin.next(false);
+      localStorage.clear();
     });
   }
   getCurrentUser() {

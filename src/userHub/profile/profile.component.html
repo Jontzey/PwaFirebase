@@ -16,12 +16,13 @@
                  <mat-card-subtitle  class="profileData-holder">Email: {{user?.email}}</mat-card-subtitle>
 
              </div>
+             <button  *ngIf="!toggleEditMode" (click)="toggleEdit()" mat-raised-button color="primary">Edit</button>
             </mat-card-content>
           </mat-card>
 
 
 
-        <mat-card>
+        <mat-card *ngIf="toggleEditMode">
           <mat-card-header>
             <mat-card-title>Edit Profile</mat-card-title>
           </mat-card-header>
@@ -41,6 +42,7 @@
               </mat-form-field>
               <div class="button-group">
                 <button mat-raised-button color="primary" type="submit">Save</button>
+                <button style="color: red;" mat-raised-button color="warn" (click)="toggleEdit()">Cancel</button>
               </div>
             </form>
           </mat-card-content>

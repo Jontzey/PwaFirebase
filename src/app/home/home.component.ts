@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { userService } from '../../services/userService.servive';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,12 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  backgroundImg:any = '/assets/images/EldenRingImg.jpeg'
+  _userService:any;
+  constructor(private userService: userService){
+    this._userService = this.userService;
+  }
+  backgroundImg:any = '/assets/images/img9.jpg'
+  img2:any = '/assets/images/pwaFirebase.png'
+  img3:any = '/assets/images/img3.jpg'
 
 }
