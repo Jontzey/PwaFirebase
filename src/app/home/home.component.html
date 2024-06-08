@@ -5,7 +5,7 @@
 
 </div>
 <div *ngIf="!(_userService.isLoggedIn$ | async)"  class="information-container">
-    <div style="display: flex; min-width: 50%; max-width: 50%;">
+    <div class="home-container">
         <div style="display: flex; flex-direction: column; align-items: center;">
             <h3 class="title-text"> A simple Pwa that is connected to firebase</h3>
             <img style="border-radius: 10px; width: 75%;" [src]="img2" alt="Img failed to load">
@@ -25,7 +25,7 @@
             </h3>
         </div>
     </div>
-    <div style="display:flex; min-width: 50%; max-width: 50%;">
+    <div class="home-container">
         <div style="display: flex; flex-direction: column; align-items: center;">
             <h3 class="title-text">A Pwa that feels and acts like a native mobile application</h3>
             <img style="border-radius: 10px; width: 75%; height: 35%;" [src]="img3" alt="Img failed to load">
@@ -35,9 +35,7 @@
 
                 <ul style="font-weight: 100;">
                     <li><strong>Standalone Display:</strong> PWAs can be installed on the user's device and launched from the home screen, opening in a separate window without the browser UI, just like a native app.</li>
-                    <li><strong>Offline Capability:</strong> With service workers, PWAs can cache resources and function offline, ensuring continuous usability even without an internet connection.</li>
                     <li><strong>Responsive Design:</strong> PWAs are built to work on any device and screen size, providing a consistent experience across desktops, tablets, and smartphones.</li>
-                    <li><strong>Automatic Updates:</strong> PWAs update automatically in the background, ensuring users always have the latest version without needing to manually download updates.</li>
                     <li><strong>Improved Performance:</strong> Leveraging modern web technologies, PWAs offer fast loading times and smooth interactions, enhancing user satisfaction.</li>
                 </ul>
             </h3>

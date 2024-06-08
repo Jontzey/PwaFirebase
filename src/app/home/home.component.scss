@@ -29,6 +29,12 @@
     display: flex;
     flex-direction: row;
 }
+
+.home-container{
+  display: flex;
+   min-width: 50%;
+    max-width: 50%;
+}
 @keyframes animTitle {
     from {
       transform: translateY(-400%);
@@ -47,7 +53,7 @@
   
     .Title-animation{
         color: white;
-        font-size: 3rem;
+        font-size: 1.5rem;
         z-index: 2;
         animation-name: animTitle;
         animation-duration: 1.5s;
@@ -62,5 +68,16 @@
    .descript-text{
     font-size: 0.8em;
     margin: 0;
+    }
+    .home-container{
+      max-width: 100%;
+    }
+    ul{padding: 0;};
+    li{
+      padding:0.5rem;
+    }
+    h3{
+      text-align: center;
+      padding: 1rem;
     }
   }

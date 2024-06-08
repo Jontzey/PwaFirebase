@@ -32,7 +32,7 @@ a{
 .btn-menu{
     color: white; 
     background-color: transparent;
-    border-radius: 10px;
+    border-radius: 0 5px 5px 5px;
 }
 
 .sidenav-item.active {
@@ -54,6 +54,6 @@ a{
     .btn-menu{
         color: white; 
         background-color: transparent;
-        border-radius: 20px;
+        border-radius: 0 5px 5px 5px; 
     }
   }

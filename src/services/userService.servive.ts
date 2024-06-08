@@ -32,7 +32,6 @@ export class userService {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user) {
-       console.log(user);
        if(user.uid === enviroment.adminUid){
           this.test = true;
        }else{
