@@ -1,5 +1,6 @@
 # JontxProject
-
+Here you visit the actual page https://jontx-82210.web.app/home
+OBS! even if you download this project you would need a folder called enviroments and in that folder you would need a enviroment.ts
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
 
 ## Development server
