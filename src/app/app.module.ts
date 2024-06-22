@@ -8,7 +8,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthRegisterComponent } from './Authentication/authRegister/authRegister.component';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
@@ -63,6 +63,7 @@ import { adminService } from '../services/adminService';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    FormsModule,
     AngularFireModule.initializeApp(enviroment.firebaseConfig),
   ],
   bootstrap: [AppComponent],

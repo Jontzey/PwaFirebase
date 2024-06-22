@@ -57,5 +57,13 @@
     <div style="display: flex; flex-direction: column;">
         <h3 style="color: white;">If you see this message you are logged in</h3>
         <h3 class="std-color">This will be updated in the future</h3>
+        <mat-form-field>
+            <mat-label>Search User</mat-label>
+            <input placeholder="*" matInput [(ngModel)]="searchTerm" />
+        </mat-form-field>
+        <div class="userList-box" *ngFor="let users of filteredUsers">
+            <img style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: solid white;" [src]="users.profileImage" alt="">
+            <h3 class="std-color">{{users.displayName}}</h3>
+        </div>
     </div>
 </div>

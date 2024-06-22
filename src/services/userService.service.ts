@@ -142,4 +142,10 @@ export class userService {
         });
     });
   }
+
+
+
+  getUsers(){
+     return this.db.list("/users").valueChanges();
+  }
 }

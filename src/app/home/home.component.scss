@@ -45,7 +45,19 @@
     }
   }
 
-
+.userList-box{
+  display: flex; 
+  align-items: center;
+   gap: 1rem;
+   border-radius: 1rem;
+}
+.userList-box:hover{
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+.userList-box:hover > h3{
+  color: black;
+}
 
 
 
