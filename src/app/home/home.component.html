@@ -61,9 +61,11 @@
             <mat-label>Search User</mat-label>
             <input placeholder="*" matInput [(ngModel)]="searchTerm" />
         </mat-form-field>
-        <div class="userList-box" *ngFor="let users of filteredUsers">
-            <img style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: solid white;" [src]="users.profileImage" alt="">
-            <h3 class="std-color">{{users.displayName}}</h3>
+        <div *ngIf="searchTerm" style="background-color: rgb(110, 108, 110); padding: 1rem;">
+            <div class="userList-box" *ngFor="let users of filteredUsers">
+                <img style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: solid white;" [src]="users.profileImage" alt="">
+                <h3 class="std-color">{{users.displayName}}</h3>
+            </div>
         </div>
     </div>
 </div>

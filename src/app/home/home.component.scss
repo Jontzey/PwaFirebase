@@ -52,7 +52,9 @@
    border-radius: 1rem;
 }
 .userList-box:hover{
+  transition: transform 0.5s;
   background-color: whitesmoke;
+  transform: scale(1.1,1.1);
   cursor: pointer;
 }
 .userList-box:hover > h3{
