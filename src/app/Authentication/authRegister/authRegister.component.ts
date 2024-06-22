@@ -23,7 +23,8 @@ export class AuthRegisterComponent implements OnInit{
       private afAuth: AngularFireAuth,
       private userService:userService,
       private router:Router,
-      private dialog:MatDialog) {
+      private dialog:MatDialog
+    ) {
 
           
       this.registerForm = this.fb.group({
@@ -42,7 +43,9 @@ export class AuthRegisterComponent implements OnInit{
         this.userService.registerUser(email, password).then(ok => {
         
         }).catch(Error => {
-          throw Error
+          if(Error.code == "auth/email-already-in-use"){
+            
+          }
         });
        
     }

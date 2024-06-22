@@ -95,7 +95,15 @@ export class userService {
         })
     })
     .catch((error) => {
-        console.error('Error registering user:', error);
+      if(error.code === 'auth/email-already-in-use'){
+        this._snackBar.open("User already exist, Try again", "Ok",{
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          duration:3000
+        });
+      }else{
+        throw error;
+      }
     });
   }
   logout(): Promise<void> {
