@@ -4,9 +4,8 @@
 
       <a *ngIf="(userService.isLoggedIn$ | async)" class="sidenav-item" [routerLink]="['profile']" routerLinkActive="active"><mat-icon>account_circle</mat-icon>Profile</a>
       <a class="sidenav-item"  [routerLink]="['home']" routerLinkActive="active"><mat-icon>home</mat-icon>Home</a>
-      <a *ngIf="!(userService.isLoggedIn$ | async)" class="sidenav-item" [routerLink]="['auth/login']" routerLinkActive="active">Login</a>
-      <a *ngIf="!(userService.isLoggedIn$ | async)" class="sidenav-item" [routerLink]="['auth/register']" routerLinkActive="active">Register</a>
-
+      <a *ngIf="!(userService.isLoggedIn$ | async)" class="sidenav-item" [routerLink]="['auth/login']" routerLinkActive="active"><mat-icon>account_box</mat-icon>Login</a>
+      <a *ngIf="!(userService.isLoggedIn$ | async)" class="sidenav-item" [routerLink]="['auth/register']" routerLinkActive="active"><mat-icon>account_box</mat-icon>Register</a>
 
       <!-- <a *ngIf="!(userService.isLoggedIn$ | async)" class="sidenav-item">Nav3</a>
       <a *ngIf="!(userService.isLoggedIn$ | async)" class="sidenav-item">Nav4</a> -->
