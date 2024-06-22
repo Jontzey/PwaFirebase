@@ -12,10 +12,10 @@
       <a *ngIf="!(userService.isLoggedIn$ | async)" class="sidenav-item">Nav4</a> -->
       <a class="sidenav-item" [routerLink]="['updates']" routerLinkActive="active"><mat-icon>sync</mat-icon>Updates</a>
       <a *ngIf="(userService.isLoggedIn$ | async)" class="sidenav-item" (click)="userService.logout()"><mat-icon>keyboard_return</mat-icon>Logout</a>
-      <div *ngIf='userService.test' class="sidenav-item" style="color: rebeccapurple; background-color: white;">
+      <div *ngIf='userService.isAnAdmin' class="sidenav-item" style="color: rebeccapurple; background-color: white;">
         Admin Routes
       </div>
-      <a *ngIf='userService.test' class="sidenav-item" >Create updates</a>
+      <a *ngIf='userService.isAnAdmin' class="sidenav-item" [routerLink]="['create_update']" routerLinkActive="active" >Create updates</a>
     </div>
   </mat-drawer>
   

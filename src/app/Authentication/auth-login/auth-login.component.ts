@@ -2,7 +2,7 @@
 import { Component } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { userService } from "../../../services/userService.servive";
+import { userService } from "../../../services/userService.service";
 import { Router } from "@angular/router";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialog } from "@angular/material/dialog";

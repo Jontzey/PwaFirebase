@@ -1,0 +1,37 @@
+.admin-update-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text-danger{
+    color: red;
+}
+
+#form-cont{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#form-submit-btn{
+    margin-bottom: 2rem;
+}
+
+.std-color{
+    color: white;
+}
+
+#form-holder{
+    padding: 4rem;
+    border: solid white ;
+    width: 60%;
+}
+
+.mat-input{
+    width: 100%;
+    overflow: visible;
+    min-height: 10rem; /* Adjust as needed */
+    resize: vertical; /* Allow resizing vertically */
+}

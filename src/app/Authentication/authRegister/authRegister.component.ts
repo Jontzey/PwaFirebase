@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { userService } from "../../../services/userService.servive";
+import { userService } from "../../../services/userService.service";
 import { Router } from "@angular/router";
 import { MatDialog } from "@angular/material/dialog";
 import { UnderConstructionDialogComponent } from "../../../Dialogs/under-construction-dialog/under-construction-dialog.component";

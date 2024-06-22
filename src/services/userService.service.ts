@@ -19,7 +19,7 @@ export class userService {
     adminUid = enviroment.adminUid;
     private _isAdmin = new BehaviorSubject<boolean>(false);
     isAdmin = this._isAdmin.asObservable();
-    test:any;
+    isAnAdmin:any;
 
     tempAccount = {
       tempDisplayName: 'tempUsername',
@@ -33,12 +33,12 @@ export class userService {
     onAuthStateChanged(auth, (user) => {
       if (user) {
        if(user.uid === enviroment.adminUid){
-          this.test = true;
+          this.isAnAdmin = true;
        }else{
-        this.test = false;
+        this.isAnAdmin = false;
        }
       } else {
-       this.test = false;
+       this.isAnAdmin = false;
       }
     });
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { userService } from '../services/userService.servive';
+import { userService } from '../services/userService.service';
 import { enviroment } from '../enviroments/enviroment';
 @Component({
   selector: 'app-root',

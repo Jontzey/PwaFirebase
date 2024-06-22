@@ -1,0 +1,40 @@
+
+
+<!-- todo add form for updatename targetgroup, description, date -->
+
+<div *ngIf='userService.isAnAdmin' class="admin-update-container">
+    <h2 class="std-color">Update Notification Creation</h2>
+    <div id="form-holder">
+        <h1 class="std-color">Create New Update</h1>
+        <form id="form-cont" [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill">
+              <mat-label>Target Group</mat-label>
+              <mat-select formControlName="role">
+                <mat-option value="developers">Developers</mat-option>
+                <mat-option value="users">Users</mat-option>
+              </mat-select>
+              <div *ngIf="formControls['role'].invalid && (formControls['role'].dirty || formControls['role'].touched)">
+                <small class="text-danger">
+                  Target Group is required.
+                </small>
+              </div>
+            </mat-form-field>
+          
+            <mat-form-field style="overflow: visible;" appearance="fill">
+              <mat-label for="updateDescription">Description</mat-label>
+              <textarea class="mat-input" placeholder="Update Description" matInput formControlName="updateDescription"></textarea>
+              <div *ngIf="formControls['updateDescription'].invalid && (formControls['updateDescription'].dirty || formControls['updateDescription'].touched)">
+                <small class="text-danger">
+                  Description is required.
+                </small>
+              </div>
+            </mat-form-field>         
+            <button id="form-submit-btn" mat-raised-button color="primary" type="submit" [disabled]="updateForm.invalid">Submit</button>
+          </form>
+    </div>
+  </div>
+
+  <div class="std-color" style="display: flex; align-items: center; justify-content: center; margin: 4rem;" *ngIf="!userService.isAnAdmin">
+    <h1>You will be redirected back to Home in {{timer}} seconds</h1>
+  </div>
+
