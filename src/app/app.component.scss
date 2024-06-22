@@ -33,6 +33,14 @@ a{
     color: white; 
     background-color: transparent;
     border-radius: 0 5px 5px 5px;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.btn-menu:hover{
+    transition: color 0.5s;
+    background-color: white;
+    color: black;
 }
 
 .sidenav-item.active {
