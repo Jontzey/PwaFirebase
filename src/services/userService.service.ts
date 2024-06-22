@@ -8,6 +8,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import firebase from 'firebase/compat/app';
 import { enviroment } from '../enviroments/enviroment';
+import { MatDialog } from '@angular/material/dialog';
+import { UnderConstructionDialogComponent } from '../Dialogs/under-construction-dialog/under-construction-dialog.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +27,7 @@ export class userService {
       tempDisplayName: 'tempUsername',
       tempImg: 'assets/images/img9.jpg'
     }
-  constructor(private afAuth: AngularFireAuth, private _snackBar:MatSnackBar, private db: AngularFireDatabase) {
+  constructor(private afAuth: AngularFireAuth, private _snackBar:MatSnackBar, private db: AngularFireDatabase, private dialog:MatDialog) {
     //observes the auth state and hold current user
     this.currentUser$ = this.afAuth.authState;
     this.isLoggedIn$ = this.afAuth.authState.pipe(map(user => !!user));
@@ -147,5 +149,14 @@ export class userService {
 
   getUsers(){
      return this.db.list("/users").valueChanges();
+  }
+
+
+
+
+  showUnderConstruction(){
+    this.dialog.open(UnderConstructionDialogComponent,{
+      autoFocus:false
+    })
   }
 }
