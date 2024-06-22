@@ -29,6 +29,7 @@ import { UpdateComponent } from './update/update.component';
 import { ProfileComponent } from '../userHub/profile/profile.component';
 import { AdminUpdateComponent } from './Admin/admin-update/admin-update.component';
 import { adminService } from '../services/adminService';
+import { ContactComponent, contactModalComponent } from './contact/contact.component';
 @NgModule ({
   declarations: [
     AppComponent,
@@ -39,7 +40,9 @@ import { adminService } from '../services/adminService';
     HomeComponent,
     UpdateComponent,
     ProfileComponent,
-    AdminUpdateComponent
+    AdminUpdateComponent,
+    ContactComponent,
+    contactModalComponent
 
   ],
   providers: [

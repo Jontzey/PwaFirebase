@@ -1,0 +1,40 @@
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem;">
+    <mat-card style="width: 100%; max-width: 600px;">
+      <mat-card-header>
+        <mat-card-title>Contact Us</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" placeholder="Your Name">
+            <mat-error *ngIf="contactForm.get('name')?.invalid">Name is required</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Your Email">
+            <mat-error *ngIf="contactForm.get('email')?.invalid">Please enter a valid email</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Message</mat-label>
+            <textarea matInput formControlName="message" placeholder="Your Message"></textarea>
+            <mat-error *ngIf="contactForm.get('message')?.invalid">Message is required</mat-error>
+          </mat-form-field>
+  
+          <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid">Send</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-card style="width: 100%; max-width: 600px; margin-top: 2rem;">
+      <mat-card-header>
+        <mat-card-title>Contact Information</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>If you have any questions, feel free to reach out to me at:</p>
+        <p><a href="mailto:jonathan.andersson1997&#64;outlook.com">jonathan.andersson1997&#64;outlook.com</a></p>
+      </mat-card-content>
+    </mat-card>
+  </div>

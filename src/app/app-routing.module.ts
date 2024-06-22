@@ -8,6 +8,7 @@ import { AuthLoginComponent } from './Authentication/auth-login/auth-login.compo
 import { UpdateComponent } from './update/update.component';
 import { ProfileComponent } from '../userHub/profile/profile.component';
 import { AdminUpdateComponent } from './Admin/admin-update/admin-update.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
 {path:'updates', component:UpdateComponent},
 {path:'profile', component:ProfileComponent},
 {path:'create_update', component:AdminUpdateComponent},
+{path:'contact', component:ContactComponent},
 { path: '**', redirectTo: 'home', pathMatch: 'full' } // Redirect unknown paths to home
 ];
 
